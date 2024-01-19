@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "project_01",
+      "request": "launch",
+      "type": "dart"
+    },
+    {
+      "name": "project_01 (profile mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "project_01 (release mode)",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/aksaykanthan/Development/Projects/project_01/project_01",
+      "program": "/Users/aksaykanthan/Development/Projects/project_01/project_01/build/Debug/outDebug"
+    }
+  ]
+}
