@@ -76,7 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Icon(Icons.medical_information_outlined, size: 100),
                 const SizedBox(height: 25),
                 const Text(
-                  "Welcome",
+                  "LOGIN",
                   style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 25),
