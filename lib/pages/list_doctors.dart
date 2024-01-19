@@ -9,17 +9,25 @@ class DoctorList extends StatelessWidget {
     // return const DoctorCard();
 
     return const Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            SizedBox(height: 20,),
-            DoctorCard(),
-            SizedBox(height: 20,),
-            DoctorCard(),
-
-
-      ],
-      ),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            children: [
+              SizedBox(height: 20,),
+              DoctorCard(),
+              SizedBox(height: 20,),
+              DoctorCard(),
+              SizedBox(height: 20,),
+              DoctorCard(),
+              SizedBox(height: 20,),
+              DoctorCard(),
+              SizedBox(height: 20,),
+              DoctorCard(),
+              SizedBox(height: 20,),
+              DoctorCard(),
+              ],
+              ),
+        ),
       ),
     );
   }
