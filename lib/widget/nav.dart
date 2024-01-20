@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/pages/list_doctors.dart';
+import 'package:project_01/pages/profile_page.dart';
 // import 'package:project_01/pages/list_doctors.dart';
 // import 'package:project_01/pages/list_doctors.dart';
 
@@ -57,7 +58,7 @@ class _NavBarState extends State<NavBar> {
         ),
         Container(
           alignment: Alignment.center,
-          child: const Text('Profile', style: TextStyle(fontSize: 30)),
+          child: const ProfilePage(),
         ),
       ][currentPageIndex],
     );
