@@ -10,7 +10,6 @@ class ViewDetails extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0,vertical: 10.0),
       child: Container(
-        color: Colors.amber,
         alignment: Alignment.center,
         child: Row(
           children: [

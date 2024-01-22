@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project_01/pages/doctor_details.dart';
 import 'package:project_01/pages/list_doctors.dart';
 import 'package:project_01/pages/profile_page.dart';
-// import 'package:project_01/pages/list_doctors.dart';
-// import 'package:project_01/pages/list_doctors.dart';
+
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -54,7 +54,23 @@ class _NavBarState extends State<NavBar> {
         ),
         Container(
           alignment: Alignment.center,
-          child: const Text('Medicines', style: TextStyle(fontSize: 30)),
+          // child: const Text('Medicines', style: TextStyle(fontSize: 30)),
+          child:  Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: Row(
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return const DoctorDetails();
+                      }));
+                    },
+                    child: const Text("Doctor Details page",
+                        style: TextStyle(fontSize: 16))),
+              ],
+            ),
+          ),
         ),
         Container(
           alignment: Alignment.center,
