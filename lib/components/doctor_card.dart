@@ -68,8 +68,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   Align(
                     alignment: Alignment.centerLeft,
                     child: IconButton(
-                      padding: EdgeInsets
-                          .zero, // Remove default padding around the icon
+                      padding: EdgeInsets.zero, 
                       icon: Fav
                           ? Icon(Icons.favorite_rounded)
                           : Icon(Icons.favorite_border_rounded),
