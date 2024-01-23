@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/components/doctor_card.dart';
 import 'package:project_01/components/hospital_card.dart';
+import 'package:project_01/components/medicine_card.dart';
 
 class DoctorList extends StatelessWidget {
   const DoctorList({super.key});
@@ -15,9 +16,12 @@ class DoctorList extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 20,),
+              MedicineCard(),
+              SizedBox(height: 20,),
               DoctorCard(),
               SizedBox(height: 20,),
               HospitalCard(),
+
               
               ],
               
