@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_01/components/doctor_card.dart';
+import 'package:project_01/components/hospital_card.dart';
 
-
-class DoctorList extends StatelessWidget {
-  const DoctorList({super.key});
+class HospitalList extends StatelessWidget {
+  const HospitalList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +13,8 @@ class DoctorList extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              DoctorCard(),
-
-
+              HospitalCard(),
+              SizedBox(height: 20,),
             ],
           ),
         ),

@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: const Text(
-            'mr dr',
+            'MediLink',
             style: TextStyle(
                 color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
           ),

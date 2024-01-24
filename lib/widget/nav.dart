@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project_01/components/upcoming_card.dart';
 import 'package:project_01/pages/doctor_details.dart';
-import 'package:project_01/pages/list_doctors.dart';
+import 'package:project_01/pages/list_tab.dart';
 import 'package:project_01/pages/profile_page.dart';
-
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -17,12 +17,13 @@ class _NavBarState extends State<NavBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       bottomNavigationBar: NavigationBar(
           height: 80,
           selectedIndex: currentPageIndex,
           elevation: 0,
           backgroundColor: Colors.white.withOpacity(0),
-          indicatorColor: Colors.purple.shade100.withOpacity(0.5),
+          indicatorColor: Colors.grey.shade100.withOpacity(0.5),
           onDestinationSelected: (int index) {
             setState(() {
               currentPageIndex = index;
@@ -40,34 +41,38 @@ class _NavBarState extends State<NavBar> {
                     size: 30), //Icons.medical_information_outlined
                 label: 'Medicines'),
             NavigationDestination(
-                icon: Icon(Icons.account_circle_outlined, size: 30), label: 'Settings'),
+                icon: Icon(Icons.account_circle_outlined, size: 30),
+                label: 'Settings'),
           ]),
       body: <Widget>[
         Container(
           alignment: Alignment.center,
           // child: const Text('Home', style: TextStyle(fontSize: 30)),
-          child: const DoctorList(),
+          child: const UpcomingAppCard(),
         ),
         Container(
           alignment: Alignment.center,
-          child: const Text('Appointment', style: TextStyle(fontSize: 30)),
+          child: TabBarApp(),
         ),
         Container(
           alignment: Alignment.center,
           // child: const Text('Medicines', style: TextStyle(fontSize: 30)),
-          child:  Padding(
+          child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Row(
               children: [
                 GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const DoctorDetails();
-                      }));
-                    },
-                    child: const Text("Doctor Details page",
-                        style: TextStyle(fontSize: 16))),
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const DoctorDetails();
+                    }));
+                  },
+                  child: const Text(
+                    "Doctor Details page",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
               ],
             ),
           ),
