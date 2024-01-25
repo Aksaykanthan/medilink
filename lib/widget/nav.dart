@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/components/upcoming_card.dart';
-import 'package:project_01/pages/doctor_details.dart';
+import 'package:project_01/pages/doctors/doctor_details.dart';
 import 'package:project_01/pages/list_tab.dart';
-import 'package:project_01/pages/profile_page.dart';
+import 'package:project_01/pages/report/test_report_page.dart';
 
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
@@ -41,8 +41,8 @@ class _NavBarState extends State<NavBar> {
                     size: 30), //Icons.medical_information_outlined
                 label: 'Medicines'),
             NavigationDestination(
-                icon: Icon(Icons.account_circle_outlined, size: 30),
-                label: 'Settings'),
+                icon: Icon(Icons.note_add_outlined, size: 30),
+                label: 'Reports'),
           ]),
       body: <Widget>[
         Container(
@@ -79,7 +79,7 @@ class _NavBarState extends State<NavBar> {
         ),
         Container(
           alignment: Alignment.center,
-          child: const ProfilePage(),
+          child: const TestReportPage(),
         ),
       ][currentPageIndex],
     );

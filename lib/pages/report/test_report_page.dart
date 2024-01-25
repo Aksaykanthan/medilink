@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:project_01/components/doctor_card.dart';
+import 'package:project_01/components/report/report_card.dart';
 
-
-class DoctorList extends StatelessWidget {
-  const DoctorList({super.key});
+class TestReportPage extends StatelessWidget {
+  const TestReportPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // return const DoctorCard();
-
-    return const Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: Center(
           child: Column(
             children: [
-              DoctorCard(),
-
-
+              ReportCard(),
+              ReportCard(),
             ],
           ),
         ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:project_01/components/button.dart';
 import 'package:project_01/components/square_title.dart';
 import 'package:project_01/components/textfield.dart';
-import 'package:project_01/pages/forgot_password_page.dart';
+import 'package:project_01/pages/authentication/forgot_password_page.dart';
 import 'package:project_01/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {

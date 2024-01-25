@@ -1,24 +1,31 @@
 import 'package:flutter/material.dart';
 
 class DoctorCard extends StatefulWidget {
-  const DoctorCard({super.key});
+  final data;
+  const DoctorCard({super.key, required this.data});
 
   @override
   State<DoctorCard> createState() => _DoctorCardState();
 }
 
 class _DoctorCardState extends State<DoctorCard> {
-  final Doctor = {
-    "name": "Shaun Murphy",
-    "field": "Surgeon",
-    "hospital": "St.Bonaventure Hospital",
-    "city": "San Jose",
-    "rating": 5,
-    "reviews": 12,
-    "image" : "assets/icons/shaun.jpeg"
-  };
-
+  late Map<String, dynamic> Doctor;
   bool Fav = false;
+
+  @override
+  void initState() {
+    super.initState();
+    Doctor = widget.data;
+    // Doctor = {
+    //   "name": widget.name,
+    //   "field": "Surgeon",
+    //   "hospital": "St.Bonaventure Hospital",
+    //   "city": "San Jose",
+    //   "rating": 5,
+    //   "reviews": 12,
+    //   "image": "assets/icons/shaun.jpeg"
+    // };
+  }
 
   void liked() {
     setState(() {
@@ -29,7 +36,7 @@ class _DoctorCardState extends State<DoctorCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(top:15.0),
+      padding: const EdgeInsetsDirectional.only(top:15.0,start: 15,end: 15),
       child: Container(
         height: 150,
         width: 340,
@@ -63,7 +70,7 @@ class _DoctorCardState extends State<DoctorCard> {
                       MainAxisAlignment.start, // Align children to the start
                   children: [
                     Text(
-                      "Dr." + Doctor["name"].toString(),
+                      "Dr.${Doctor["name"]}",
                       style: const TextStyle(
                           fontWeight: FontWeight.bold, fontSize: 16),
                     ),
@@ -72,8 +79,8 @@ class _DoctorCardState extends State<DoctorCard> {
                       child: IconButton(
                         padding: EdgeInsets.zero, 
                         icon: Fav
-                            ? Icon(Icons.favorite_rounded)
-                            : Icon(Icons.favorite_border_rounded),
+                            ? const Icon(Icons.favorite_rounded)
+                            : const Icon(Icons.favorite_border_rounded),
                         onPressed: () => liked(),
                         color: Fav ? Colors.pink : Colors.grey,
                         iconSize: 20,
@@ -86,7 +93,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   height: 1,
                   color: Colors.grey.shade400,
                 ),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 Text(
                   Doctor["field"].toString(),
                   style: const TextStyle(
@@ -116,7 +123,7 @@ class _DoctorCardState extends State<DoctorCard> {
                   ),
                   textAlign: TextAlign.left,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
     
@@ -127,7 +134,7 @@ class _DoctorCardState extends State<DoctorCard> {
                       color: Colors.yellow,
                     ),
                     Text(Doctor["rating"].toString()),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Container(
@@ -135,11 +142,11 @@ class _DoctorCardState extends State<DoctorCard> {
                       height: 18,
                       color: Colors.grey.shade300,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Text(
-                      Doctor["reviews"].toString() + " Reviews  ",
+                      "${Doctor["reviews"]} Reviews  ",
                       style: const TextStyle(
                           color: Colors.black54, fontWeight: FontWeight.w300),
                     )

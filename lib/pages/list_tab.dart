@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_01/pages/list_doctors.dart';
-import 'package:project_01/pages/list_hospital.dart';
+import 'package:project_01/pages/doctors/list_doctors.dart';
+import 'package:project_01/pages/doctors/list_hospital.dart';
 
 class TabBarApp extends StatelessWidget {
   const TabBarApp({super.key});

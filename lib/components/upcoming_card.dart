@@ -6,7 +6,7 @@ class UpcomingAppCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15.0),
+      padding: const EdgeInsets.all(15.0),
       height: 150,
       width: 340,
       // color: Colors.grey,
@@ -23,7 +23,7 @@ class UpcomingAppCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          const Row(
             children: [
               Icon(
                 Icons.person,
@@ -54,10 +54,10 @@ class UpcomingAppCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.grey[300]),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(
+                        padding: EdgeInsetsDirectional.only(
                             start: 8.0, end: 3.0),
                         child: Icon(
                           Icons.calendar_month,
@@ -77,10 +77,10 @@ class UpcomingAppCard extends StatelessWidget {
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       color: Colors.grey[300]),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Padding(
-                        padding: const EdgeInsetsDirectional.only(
+                        padding: EdgeInsetsDirectional.only(
                             start: 8.0, end: 3.0),
                         child: Icon(
                           Icons.alarm,

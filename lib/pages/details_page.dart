@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_01/components/button.dart';
 import 'package:project_01/components/textfield.dart';
 
+
 class UserDetails extends StatefulWidget {
   final Function()? onTap;
   const UserDetails({super.key, required this.onTap});
