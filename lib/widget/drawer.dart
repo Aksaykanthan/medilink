@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:project_01/components/title_button.dart';
 
 class AppDrawer extends StatelessWidget {
-  final navHome;
-  final navProfile;
+  final dynamic navHome;
+  final dynamic navProfile;
   const AppDrawer({super.key, this.navHome, this.navProfile});
   
   void signUserOut() {

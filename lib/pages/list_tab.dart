@@ -8,7 +8,7 @@ class TabBarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 2,
       child: Scaffold(
           appBar: TabBar(

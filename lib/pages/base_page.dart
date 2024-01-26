@@ -16,12 +16,12 @@ class BasePage extends StatelessWidget {
   void navHome(BuildContext context) {
     Navigator.pop(context);
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => BasePage()));
+        context, MaterialPageRoute(builder: (context) =>const  BasePage()));
   }
 
   void navNotification(BuildContext context) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => Notifications()));
+        context, MaterialPageRoute(builder: (context) =>  const Notifications()));
   }
 
   @override

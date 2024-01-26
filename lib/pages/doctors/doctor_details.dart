@@ -26,7 +26,6 @@ class _DoctorDetailsState extends State<DoctorDetails> {
   String review =
       'The quality of treatment and his behaviour towards patients are highly professional and friendly. ';
 
-  void back_button() {}
   void all() {}
 
   void liked() {
@@ -40,9 +39,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-        title: Text("Doctor Details"),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.grey[900],
+        title: const Text("Doctor Details"),
         centerTitle: true,
         actions: [
           IconButton(
