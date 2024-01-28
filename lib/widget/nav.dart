@@ -52,7 +52,7 @@ class _NavBarState extends State<NavBar> {
         ),
         Container(
           alignment: Alignment.center,
-          child: TabBarApp(),
+          child: const TabBarApp(),
         ),
         Container(
           alignment: Alignment.center,

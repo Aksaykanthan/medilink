@@ -40,7 +40,7 @@ class _DoctorCardState extends State<DoctorCard> {
       padding: const EdgeInsetsDirectional.only(top: 15.0, start: 15, end: 15),
       child: GestureDetector(
         onTap: () => (    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => DoctorDetails()))),
+        context, MaterialPageRoute(builder: (context) => const DoctorDetails()))),
         child: Container(
           height: 230,
           width: 340,
@@ -164,18 +164,18 @@ class _DoctorCardState extends State<DoctorCard> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal:10.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal:10.0),
                 child: Divider(thickness: 2,),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.grey[900],
                   
-                  fixedSize:Size.fromWidth(300)
+                  fixedSize:const Size.fromWidth(300)
                 ),
                 onPressed: () {},
-                child: Text('Book Appointment',style: TextStyle(fontSize: 18),),
+                child: const Text('Book Appointment',style: TextStyle(fontSize: 18),),
               ),
             ],
           ),

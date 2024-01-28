@@ -22,7 +22,7 @@ class ReportCard extends StatelessWidget {
       child: GestureDetector(
         onTap: () => {navLabTestPage(context)},
         child: Container(
-          padding: EdgeInsets.only(top: 20, left: 10),
+          padding: const EdgeInsets.only(top: 20, left: 10),
           height: 120,
           width: 340,
           decoration: BoxDecoration(
@@ -46,18 +46,18 @@ class ReportCard extends StatelessWidget {
                     Text(
                       DocTest["reason"].toString(),
                       style:
-                          TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                          const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
               ),
               Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Text(DocTest["name"].toString()),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Padding(
@@ -67,8 +67,8 @@ class ReportCard extends StatelessWidget {
                       height: 45,
                       child: Row(
                         children: [
-                          Padding(
-                            padding: const EdgeInsetsDirectional.only(
+                          const Padding(
+                            padding: EdgeInsetsDirectional.only(
                                 start: 8.0, end: 3.0),
                             child: Icon(
                               Icons.calendar_month,

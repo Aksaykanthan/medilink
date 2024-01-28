@@ -17,7 +17,7 @@ class GetDoctor extends StatelessWidget {
           Map<String,dynamic> data = snapshot.data!.data() as Map<String,dynamic>;
           return DoctorCard(data :data);
         }
-        return Text("Loading....");
+        return const Text("Loading....");
       }
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_01/pages/doctors/hospital_details.dart';
 
 class HospitalCard extends StatefulWidget {
   const HospitalCard({super.key});
@@ -20,104 +21,108 @@ class _HospitalCardState extends State<HospitalCard> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 15.0),
-      child: Container(
-        height: 290,
-        width: 340,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [
-              BoxShadow(
-                  color: Colors.grey.withOpacity(0.5),
-                  spreadRadius: 3,
-                  blurRadius: 8,
-                  offset: const Offset(0, 6)),
-            ]),
-        child: Column(children: [
-          Padding(
-            // padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 15),
-            padding: EdgeInsets.zero,
-            child: ClipRRect(
-              borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
-              child: Image.asset(
-                "assets/icons/hospital.png",
-                alignment: Alignment.centerLeft,
+      child: GestureDetector(
+        onTap: () => (    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => HospitalDetails()))),
+        child: Container(
+          height: 290,
+          width: 340,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 3,
+                    blurRadius: 8,
+                    offset: const Offset(0, 6)),
+              ]),
+          child: Column(children: [
+            Padding(
+              // padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 15),
+              padding: EdgeInsets.zero,
+              child: ClipRRect(
+                borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                child: Image.asset(
+                  "assets/icons/hospital.png",
+                  alignment: Alignment.centerLeft,
+                ),
               ),
             ),
-          ),
-          const SizedBox(height: 10),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  Hospital["name"].toString(),
-                  style:
-                      const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_on_outlined,
-                      color: Colors.grey,
-                      size: 20,
-                    ),
-                    Text(
-                      Hospital["location"].toString(),
-                      style: TextStyle(color: Colors.grey[700]),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      Hospital["rating"].toString(),
-                    ),
-                    Icon(
-                      Icons.star,
-                      color: Colors.amber,
-                    ),
-                    Text(
-                      "(" + Hospital["reviews"].toString() + " reviews)",
-                    ),
-                  ],
-                ),
-                Container(
-                  width: 340,
-                  height: 1,
-                  color: Colors.grey.shade400,
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.linear_scale_outlined,
-                      color: Colors.grey,
-                    ),
-                    Text(Hospital["distance"].toString()),
-                    SizedBox(width: 150,),
-                    Icon(Icons.local_hospital_outlined,),
-                    Align(
-                      child: Text(
-                        " "+Hospital["type"].toString(),
+            const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    Hospital["name"].toString(),
+                    style:
+                        const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.grey,
+                        size: 20,
                       ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-        ]),
+                      Text(
+                        Hospital["location"].toString(),
+                        style: TextStyle(color: Colors.grey[700]),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      Text(
+                        Hospital["rating"].toString(),
+                      ),
+                      const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      Text(
+                        "(" + Hospital["reviews"].toString() + " reviews)",
+                      ),
+                    ],
+                  ),
+                  Container(
+                    width: 340,
+                    height: 1,
+                    color: Colors.grey.shade400,
+                  ),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.linear_scale_outlined,
+                        color: Colors.grey,
+                      ),
+                      Text(Hospital["distance"].toString()),
+                      const SizedBox(width: 150,),
+                      const Icon(Icons.local_hospital_outlined,),
+                      Align(
+                        child: Text(
+                          " "+Hospital["type"].toString(),
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            )
+          ]),
+        ),
       ),
     );
   }
