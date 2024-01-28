@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/components/upcoming_card.dart';
-import 'package:project_01/pages/doctors/doctor_details.dart';
 import 'package:project_01/pages/list_tab.dart';
+import 'package:project_01/pages/report/list_medicines.dart';
 import 'package:project_01/pages/report/test_report_page.dart';
 
 class NavBar extends StatefulWidget {
@@ -56,26 +56,8 @@ class _NavBarState extends State<NavBar> {
         ),
         Container(
           alignment: Alignment.center,
-          // child: const Text('Medicines', style: TextStyle(fontSize: 30)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Row(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return const DoctorDetails();
-                    }));
-                  },
-                  child: const Text(
-                    "Doctor Details page",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
-              ],
-            ),
-          ),
+          child: const MedicineList(),
+
         ),
         Container(
           alignment: Alignment.center,
