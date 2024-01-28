@@ -164,8 +164,8 @@ class _DoctorCardState extends State<DoctorCard> {
                   ),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal:10.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal:10.0),
                 child: Divider(thickness: 2,),
               ),
               ElevatedButton(
