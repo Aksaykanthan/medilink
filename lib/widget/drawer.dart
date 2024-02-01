@@ -1,14 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project_01/components/title_button.dart';
+import 'package:project_01/pages/authentication/auth_page.dart';
 
 class AppDrawer extends StatelessWidget {
   final dynamic navHome;
   final dynamic navProfile;
   const AppDrawer({super.key, this.navHome, this.navProfile});
   
-  void signUserOut() {
+  void signUserOut(BuildContext context) {
     FirebaseAuth.instance.signOut();
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const AuthPage()));
   }
 
   @override
@@ -47,7 +49,7 @@ class AppDrawer extends StatelessWidget {
               child: TitleBtn(
                 icon: Icons.logout,
                 text: "L O G O U T",
-                onTap: signUserOut,
+                onTap: (){signUserOut(context);},
               ),
             ),
           ],

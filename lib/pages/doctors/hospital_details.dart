@@ -1,6 +1,5 @@
-import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:project_01/components/doctor_card.dart';
+import 'package:project_01/services/map.dart';
 import 'package:project_01/widget/slider.dart';
 
 class HospitalDetails extends StatefulWidget {
@@ -13,7 +12,7 @@ class HospitalDetails extends StatefulWidget {
 class _HospitalDetailsState extends State<HospitalDetails> {
   final hospital = {
     'name': 'Apollo Hospitals',
-    'location':
+    'url':
         'https://www.google.com/maps/dir//Tower+49,+Apollo+Clinic,+1st+KTS,+1,+Sathy+Rd,+Athipalayam+Pirivu,+Ganapathy,+Coimbatore,+Tamil+Nadu+641006/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3ba858e2c2fdc92d:0x9bef8ad9fab36fbd?sa=X&ved=2ahUKEwjmsLvkh4CEAxVGV2wGHQeJDywQ48ADegQIHxAA',
     'address':
         ' Tower 49, 1st KTS, 1, Sathy Rd,\n Athipalayam Pirivu, Ganapathy,\n Coimbatore, Tamil Nadu 641006',
@@ -107,13 +106,16 @@ class _HospitalDetailsState extends State<HospitalDetails> {
             ),
             Row(
               children: [
-                CircleAvatar(
-                  radius: 20,
-                  backgroundColor: Colors.grey.shade200,
-                  child: const Icon(
-                    Icons.location_on_rounded,
-                    size: 26,
-                    color: Colors.black,
+                GestureDetector(
+                  onTap:()=>{MapUtils.openMap(hospital["url"]!)},
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.grey.shade200,
+                    child: const Icon(
+                      Icons.location_on_rounded,
+                      size: 26,
+                      color: Color.fromARGB(255, 249, 18, 1),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -165,9 +167,7 @@ class _HospitalDetailsState extends State<HospitalDetails> {
                   body: const Text("These are all the Doctors")),
               ]
                   ),
-            const SizedBox(
-              height: 10,
-            ),
+            const SizedBox(height: 10,),
             ExpansionPanelList(
               elevation: 0,
               expansionCallback: (panelIndex, isExpanded) {

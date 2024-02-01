@@ -10,7 +10,7 @@ class MedicineCard extends StatefulWidget {
 
 class _MedicineCardState extends State<MedicineCard> {
   final Medicine = {
-    "medicinename": "eno",
+    "medicinename": "P-500",
     "doctor": "Dr Shaun Murphy",
     "days": 7
   };
@@ -55,12 +55,12 @@ class _MedicineCardState extends State<MedicineCard> {
           child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.medication_liquid_rounded,
                   // color: Colors.grey[400],
                   size: 34,
                 ),
-                SizedBox(width: 7),
+                const SizedBox(width: 7),
                 Text(Medicine["medicinename"].toString(),
                     style: const TextStyle(
                         fontSize: 26, fontWeight: FontWeight.bold)),
@@ -68,6 +68,7 @@ class _MedicineCardState extends State<MedicineCard> {
             ),
             const SizedBox(width: 20),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text("prescribed by:",
                     style: TextStyle(fontSize: 15, color: Colors.grey)),
@@ -75,9 +76,8 @@ class _MedicineCardState extends State<MedicineCard> {
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold)),
               ],
-              crossAxisAlignment: CrossAxisAlignment.start,
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(

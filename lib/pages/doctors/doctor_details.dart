@@ -1,5 +1,8 @@
 // ignore: file_names
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 
 class DoctorDetails extends StatefulWidget {
   const DoctorDetails({super.key});
@@ -12,7 +15,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
   bool Fav = false;
   var doctor = {
     'name': 'Shaun Murphy',
-    'speciality': 'Surgeon',
+    'field': 'Surgeon',
     'hospital': 'St.Bonaventure Hospital',
     'patients_cnt': 1000,
     'experience': 10,
@@ -21,10 +24,22 @@ class _DoctorDetailsState extends State<DoctorDetails> {
     'about_me':
         'Dr. Shaun Murphy is one of the most talented surgeons in San Jose.He has performed more than hundred difficult surjeries and the count goes on.',
     'work_days': 'Monday - Friday',
-    'timings': '8.00 AM to 6.00 PM'
+    'timings': '8.00 AM to 6.00 PM',
+    'review': [
+      {
+        "name": "Melendez",
+        "rating": 5,
+        "review_body":
+            'The quality of treatment and his behaviour towards patients are highly professional and friendly.'
+      },
+      {
+        "name": "Melendez",
+        "rating": 5,
+        "review_body":
+            'The quality of treatment and his behaviour towards patients are highly professional and friendly.'
+      }
+    ]
   };
-  String review =
-      'The quality of treatment and his behaviour towards patients are highly professional and friendly. ';
 
   void all() {}
 
@@ -52,7 +67,8 @@ class _DoctorDetailsState extends State<DoctorDetails> {
             color: Fav ? Colors.pink : Colors.black,
             iconSize: 25,
           )
-        ],),
+        ],
+      ),
       body: Column(
         children: [
           const SizedBox(height: 25),
@@ -104,7 +120,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     Row(
                       children: [
                         Text(
-                          doctor['speciality'].toString(),
+                          doctor['field'].toString(),
                           style: const TextStyle(
                             color: Colors.grey,
                             fontSize: 17,
@@ -370,51 +386,84 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           const SizedBox(
             height: 7,
           ),
-          const Row(
-            children: [
-              SizedBox(width: 20),
-              CircleAvatar(
-                radius: 26,
-                backgroundImage: NetworkImage(
-                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNqgFy_pnSg5_eaKpFcVyJ0nQTOT0XmAvM8w&usqp=CAU"),
-              ),
-              Column(
-                children: [
-                  Text(
-                    "Melendez",
-                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text("5"),
-                      SizedBox(
-                        width: 4,
-                      ),
-                      Icon(Icons.star_rate_rounded,
-                          color: Colors.amber, size: 20),
-                      Icon(Icons.star_rate_rounded,
-                          color: Colors.amber, size: 20),
-                      Icon(Icons.star_rate_rounded,
-                          color: Colors.amber, size: 20),
-                      Icon(Icons.star_rate_rounded,
-                          color: Colors.amber, size: 20),
-                      Icon(Icons.star_rate_rounded,
-                          color: Colors.amber, size: 20)
-                    ],
-                  )
-                ],
-              )
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-            child: Text(review.toString()),
-          ),
+          ReviewCard(review: doctor["review"] as List),
         ],
       ),
+    );
+  }
+}
+
+class ReviewCard extends StatelessWidget {
+  final List review;
+
+  const ReviewCard({
+    super.key,
+    required this.review,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            const SizedBox(width: 20),
+            const CircleAvatar(
+              radius: 26,
+              backgroundImage: NetworkImage(
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNqgFy_pnSg5_eaKpFcVyJ0nQTOT0XmAvM8w&usqp=CAU"),
+            ),
+            Column(
+              children: [
+                const Text(
+                  "Melendez",
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                ),
+                const Row(
+                  children: [
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text("5"),
+                    SizedBox(
+                      width: 4,
+                    ),
+                    Icon(Icons.star_rate_rounded,
+                        color: Colors.amber, size: 20),
+                    Icon(Icons.star_rate_rounded,
+                        color: Colors.amber, size: 20),
+                    Icon(Icons.star_rate_rounded,
+                        color: Colors.amber, size: 20),
+                    Icon(Icons.star_rate_rounded,
+                        color: Colors.amber, size: 20),
+                    Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20)
+                  ],
+                ),
+                ReadMoreText(
+                  "${review[0]["review_body"]}",
+                  trimLines: 2,
+                  textAlign: TextAlign.justify,
+                  trimMode: TrimMode.Line,
+                  trimCollapsedText: " Show more ",
+                  trimExpandedText: " Show less ",
+                  moreStyle:
+                      TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+
+                  ),
+                
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+                //   child: Wrap(
+                //     children: [
+                //       SelectableText("${review[0]["review_body"]}"),
+                //     ],
+                //   ),
+                // ),
+              ],
+            )
+          ],
+        ),
+      ],
     );
   }
 }

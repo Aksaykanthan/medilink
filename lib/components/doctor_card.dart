@@ -3,7 +3,8 @@ import 'package:project_01/pages/doctors/doctor_details.dart';
 
 class DoctorCard extends StatefulWidget {
   final data;
-  const DoctorCard({super.key, required this.data});
+  final docId;
+  const DoctorCard({super.key, required this.data, this.docId});
 
   @override
   State<DoctorCard> createState() => _DoctorCardState();
@@ -29,6 +30,8 @@ class _DoctorCardState extends State<DoctorCard> {
   }
 
   void liked() {
+
+
     setState(() {
       Fav = !Fav;
     });
@@ -60,13 +63,15 @@ class _DoctorCardState extends State<DoctorCard> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(14),
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(14),
-                        child: Image.asset(
-                          Doctor["image"].toString(),
-                          alignment: Alignment.centerLeft,
-                          height: 130,
-                        )),
+                    child: SizedBox(
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Image.asset(
+                            Doctor["image"].toString(),
+                            alignment: Alignment.centerLeft,
+                            height: 130,
+                          )),
+                    ),
                   ),
                   Column(
                     crossAxisAlignment:
@@ -140,7 +145,7 @@ class _DoctorCardState extends State<DoctorCard> {
                             Icons.star_rate_rounded,
                             color: Colors.yellow,
                           ),
-                          Text(Doctor["rating"].toString()),
+                          Text("${Doctor["rating"]}"),
                           const SizedBox(
                             width: 10,
                           ),

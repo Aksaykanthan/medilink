@@ -14,28 +14,25 @@ class _DoctorListState extends State<DoctorList> {
 
   Future getAllDoc() async {
     docID.clear();
-    await FirebaseFirestore.instance
-        .collection("doctors")
-        .get()
-        .then((snapshot) => snapshot.docs.forEach((element) {
-              docID.add(element.reference.id);
-            }));
+    await FirebaseFirestore.instance.collection("doctors").get().then(
+          (snapshot) => snapshot.docs.forEach((element) {
+            docID.add(element.reference.id);
+          }),
+        );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: FutureBuilder(
+      body: FutureBuilder(
           future: getAllDoc(),
           builder: (context, snapshot) {
             return ListView.builder(
-              itemCount: docID.length,
-              itemBuilder: (context,index){
-                return GetDoctor(docID: docID[index]);
-            }
-            );
-          }
-        ),
-        );
+                itemCount: docID.length,
+                itemBuilder: (context, index) {
+                  return GetDoctor(docID: docID[index]);
+                });
+          }),
+    );
   }
 }

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/components/hospital_card.dart';
-import 'package:project_01/components/medicine_card.dart';
+
 
 class HospitalList extends StatelessWidget {
   const HospitalList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // return const DoctorCard();
 
     return const Scaffold(
       body: SingleChildScrollView(
@@ -16,7 +15,6 @@ class HospitalList extends StatelessWidget {
             children: [
               HospitalCard(),
               SizedBox(height: 20,),
-              MedicineCard()
             ],
           ),
         ),

@@ -50,6 +50,7 @@ class _UserDetailsState extends State<UserDetails> {
     String? customDocumentId = FirebaseAuth.instance.currentUser?.uid;
 
     Map<String, dynamic> data = {
+      "role" : "patient",
       "name": name.text,
       "dob": dob.text,
       "height": height.text,
@@ -59,6 +60,7 @@ class _UserDetailsState extends State<UserDetails> {
       "city": city.text,
       "phoneno": phoneno.text,
       "emphoneno": emphoneno.text,
+      "fav":[]
     };
     await addDetailsToFirestore(collectionName, customDocumentId!, data);
   }

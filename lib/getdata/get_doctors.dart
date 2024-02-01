@@ -15,7 +15,7 @@ class GetDoctor extends StatelessWidget {
       builder: (context,snapshot) {
         if (snapshot.connectionState == ConnectionState.done){
           Map<String,dynamic> data = snapshot.data!.data() as Map<String,dynamic>;
-          return DoctorCard(data :data);
+          return DoctorCard(data :data ,docId: docID);
         }
         return const Text("Loading....");
       }
