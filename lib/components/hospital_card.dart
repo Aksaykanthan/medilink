@@ -1,31 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/pages/doctors/hospital_details.dart';
 
+// class HospitalCard extends StatefulWidget {
+//   const HospitalCard({super.key});
+//   @override
+//   State<HospitalCard> createState() => _HospitalCardState();
+// }
 class HospitalCard extends StatefulWidget {
-  const HospitalCard({super.key});
+  final data;
+  final hospId;
+  const HospitalCard({super.key, required this.data, this.hospId});
+
   @override
   State<HospitalCard> createState() => _HospitalCardState();
 }
 
 class _HospitalCardState extends State<HospitalCard> {
-  final Hospital = {
-    "name": "Sunrise Health",
-    "location": "Bakers street",
-    "rating": "5.0",
-    "reviews": 123,
-    "distance": "12 km",
-    "type": "Hospital"
-  };
+  late Map<String, dynamic> Hospital;
+
+  // final Hospital = {
+  //   "name": "Sunrise Health",
+  //   "location": "Bakers street",
+  //   "rating": "5.0",
+  //   "reviews": 123,
+  //   "distance": "12 km",
+  //   "type": "Hospital"
+  // };
+  @override
+  void initState() {
+    super.initState();
+    Hospital = widget.data;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.only(top: 15.0),
+      padding: const EdgeInsetsDirectional.only(top: 15.0, start: 15, end: 15,bottom: 10),
       child: GestureDetector(
-        onTap: () => (    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => HospitalDetails()))),
+        onTap: () => (Navigator.push(context,
+            MaterialPageRoute(builder: (context) => HospitalDetails()))),
         child: Container(
-          height: 290,
+          height: 300,
           width: 340,
           decoration: BoxDecoration(
               color: Colors.white,
@@ -43,7 +58,8 @@ class _HospitalCardState extends State<HospitalCard> {
               padding: EdgeInsets.zero,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+                    topLeft: Radius.circular(10),
+                    topRight: Radius.circular(10)),
                 child: Image.asset(
                   "assets/icons/hospital.png",
                   alignment: Alignment.centerLeft,
@@ -58,8 +74,8 @@ class _HospitalCardState extends State<HospitalCard> {
                 children: [
                   Text(
                     Hospital["name"].toString(),
-                    style:
-                        const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(
                     height: 5,
@@ -73,7 +89,7 @@ class _HospitalCardState extends State<HospitalCard> {
                       ),
                       Text(
                         Hospital["location"].toString(),
-                        style: TextStyle(color: Colors.grey[700]),
+                        style: TextStyle(color: Colors.grey[600], fontSize: 16),
                       )
                     ],
                   ),
@@ -86,11 +102,14 @@ class _HospitalCardState extends State<HospitalCard> {
                         Hospital["rating"].toString(),
                       ),
                       const Icon(
-                        Icons.star,
+                        Icons.star_rate_rounded,
                         color: Colors.amber,
                       ),
+                      const SizedBox(
+                        width: 2,
+                      ),
                       Text(
-                        "(" + Hospital["reviews"].toString() + " reviews)",
+                        "(${Hospital["review"]} reviews)",
                       ),
                     ],
                   ),
@@ -105,16 +124,19 @@ class _HospitalCardState extends State<HospitalCard> {
                   Row(
                     children: [
                       const Icon(
-                        Icons.linear_scale_outlined,
-                        color: Colors.grey,
+                        Icons.directions_bike_rounded,
+                        color: Colors.black54,
+                        size: 16,
                       ),
-                      Text(Hospital["distance"].toString()),
-                      const SizedBox(width: 150,),
-                      const Icon(Icons.local_hospital_outlined,),
-                      Align(
-                        child: Text(
-                          " "+Hospital["type"].toString(),
-                        ),
+                      Text("${Hospital["distance"]} Km".toString()),
+                      const SizedBox(
+                        width: 150,
+                      ),
+                      const Icon(
+                        Icons.local_hospital_outlined,
+                      ),
+                      Text(
+                        " ${Hospital["type"]}",
                       )
                     ],
                   )

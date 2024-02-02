@@ -12,12 +12,14 @@ class DoctorCard extends StatefulWidget {
 
 class _DoctorCardState extends State<DoctorCard> {
   late Map<String, dynamic> Doctor;
+  late String DocId;
   bool Fav = false;
 
   @override
   void initState() {
     super.initState();
     Doctor = widget.data;
+    DocId = widget.docId;
     // Doctor = {
     //   "name": widget.name,
     //   "field": "Surgeon",
@@ -30,8 +32,6 @@ class _DoctorCardState extends State<DoctorCard> {
   }
 
   void liked() {
-
-
     setState(() {
       Fav = !Fav;
     });
@@ -42,8 +42,11 @@ class _DoctorCardState extends State<DoctorCard> {
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 15.0, start: 15, end: 15),
       child: GestureDetector(
-        onTap: () => (    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const DoctorDetails()))),
+        onTap: () => (Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    DoctorDetails(data: Doctor, docId: DocId)))),
         child: Container(
           height: 230,
           width: 340,
@@ -124,7 +127,8 @@ class _DoctorCardState extends State<DoctorCard> {
                           Text(
                             Doctor["hospital"].toString(),
                             style: const TextStyle(
-                                color: Colors.black, fontWeight: FontWeight.w400),
+                                color: Colors.black,
+                                fontWeight: FontWeight.w400),
                           ),
                         ],
                       ),
@@ -157,12 +161,12 @@ class _DoctorCardState extends State<DoctorCard> {
                           const SizedBox(
                             width: 10,
                           ),
-                          Text(
-                            "${Doctor["reviews"]} Reviews  ",
-                            style: const TextStyle(
-                                color: Colors.black54,
-                                fontWeight: FontWeight.w300),
-                          )
+                          // Text(
+                          //   "${Doctor["reviews"]} Reviews  ",
+                          //   style: const TextStyle(
+                          //       color: Colors.black54,
+                          //       fontWeight: FontWeight.w300),
+                          // )
                         ],
                       )
                     ],
@@ -170,17 +174,20 @@ class _DoctorCardState extends State<DoctorCard> {
                 ],
               ),
               const Padding(
-                padding: EdgeInsets.symmetric(horizontal:10.0),
-                child: Divider(thickness: 2,),
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Divider(
+                  thickness: 2,
+                ),
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.grey[900],
-                  
-                  fixedSize:const Size.fromWidth(300)
-                ),
+                    backgroundColor: Colors.grey[900],
+                    fixedSize: const Size.fromWidth(300)),
                 onPressed: () {},
-                child: const Text('Book Appointment',style: TextStyle(fontSize: 18),),
+                child: const Text(
+                  'Book Appointment',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
             ],
           ),
