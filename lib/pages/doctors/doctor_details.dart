@@ -2,10 +2,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:readmore/readmore.dart';
 
 class DoctorDetails extends StatefulWidget {
-  const DoctorDetails({super.key});
+  final data;
+  final docId;
+  DoctorDetails({super.key, required this.data, required this.docId});
 
   @override
   State<DoctorDetails> createState() => _DoctorDetailsState();
@@ -13,33 +14,34 @@ class DoctorDetails extends StatefulWidget {
 
 class _DoctorDetailsState extends State<DoctorDetails> {
   bool Fav = false;
-  var doctor = {
-    'name': 'Shaun Murphy',
-    'field': 'Surgeon',
-    'hospital': 'St.Bonaventure Hospital',
-    'patients_cnt': 1000,
-    'experience': 10,
-    'rating': 4.8,
-    'reviews': 1394,
-    'about_me':
-        'Dr. Shaun Murphy is one of the most talented surgeons in San Jose.He has performed more than hundred difficult surjeries and the count goes on.',
-    'work_days': 'Monday - Friday',
-    'timings': '8.00 AM to 6.00 PM',
-    'review': [
-      {
-        "name": "Melendez",
-        "rating": 5,
-        "review_body":
-            'The quality of treatment and his behaviour towards patients are highly professional and friendly.'
-      },
-      {
-        "name": "Melendez",
-        "rating": 5,
-        "review_body":
-            'The quality of treatment and his behaviour towards patients are highly professional and friendly.'
-      }
-    ]
-  };
+  late Map<String, dynamic> doctor;
+  // Map doctor = {
+  //   'name': 'Shaun Murphy',
+  //   'field': 'Surgeon',
+  //   'hospital': 'St.Bonaventure Hospital',
+  //   'patients_cnt': 1000,
+  //   'experience': 10,
+  //   'rating': 4.8,
+  //   'reviews': 1394,
+  //   'about_me':
+  //       'Dr. Shaun Murphy is one of the most talented surgeons in San Jose.He has performed more than hundred difficult surjeries and the count goes on.',
+  //   'work_days': 'Monday - Friday',
+  //   'timings': '8.00 AM to 6.00 PM',
+  //   'review': [
+  //     {
+  //       "name": "Melendez",
+  //       "rating": 5,
+  //       "review_body":
+  //           'The quality of treatment and his behaviour towards patients are highly professional and friendly.'
+  //     },
+  //     {
+  //       "name": "Melendez",
+  //       "rating": 5,
+  //       "review_body":
+  //           'The quality of treatment and his behaviour towards patients are highly professional and friendly.'
+  //     }
+  //   ]
+  // };
 
   void all() {}
 
@@ -47,6 +49,21 @@ class _DoctorDetailsState extends State<DoctorDetails> {
     setState(() {
       Fav = !Fav;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    doctor = widget.data;
+    // Doctor = {
+    //   "name": widget.name,
+    //   "field": "Surgeon",
+    //   "hospital": "St.Bonaventure Hospital",
+    //   "city": "San Jose",
+    //   "rating": 5,
+    //   "reviews": 12,
+    //   "image": "assets/icons/shaun.jpeg"
+    // };
   }
 
   @override
@@ -154,157 +171,22 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           const SizedBox(width: 100, height: 20),
           Row(
             children: [
-              const SizedBox(
-                height: 3,
-                width: 20,
-              ),
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(
-                  Icons.people_alt_rounded,
-                  size: 28,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                height: 3,
-                width: 40,
-              ),
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(
-                  Icons.people_alt_rounded,
-                  size: 28,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                height: 3,
-                width: 40,
-              ),
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(
-                  Icons.people_alt_rounded,
-                  size: 28,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                height: 3,
-                width: 40,
-              ),
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: Colors.grey.shade200,
-                child: const Icon(
-                  Icons.people_alt_rounded,
-                  size: 28,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 6,
-          ),
-          Row(
-            children: [
-              const SizedBox(
-                height: 3,
-                width: 27,
-              ),
-              Text(
-                '${doctor['patients_cnt']}+',
-                style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 3,
-                width: 60,
-              ),
-              Text(
-                '${doctor['experience']}+',
-                style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 3,
-                width: 70,
-              ),
-              Text(
-                '${doctor['rating']}',
-                style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 3,
-                width: 64,
-              ),
-              Text(
-                '${doctor['reviews']}',
-                style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.bold),
-              ),
-            ],
-          ),
-          const Row(
-            children: [
-              SizedBox(
-                height: 3,
-                width: 25,
-              ),
-              Text(
-                'Patients',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w300),
-              ),
-              SizedBox(
-                height: 3,
-                width: 46,
-              ),
-              Text(
-                'Experience',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w300),
-              ),
-              SizedBox(
-                height: 3,
-                width: 45,
-              ),
-              Text(
-                'Rating',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w300),
-              ),
-              SizedBox(
-                height: 3,
-                width: 54,
-              ),
-              Text(
-                'Reviews',
-                style: TextStyle(
-                    fontSize: 12,
-                    color: Colors.black87,
-                    fontWeight: FontWeight.w300),
-              ),
+              DetIcon(
+                  icon: Icons.abc_sharp,
+                  name: "Patients",
+                  count: '${doctor['patient_count']}'),
+              DetIcon(
+                  icon: Icons.abc_sharp,
+                  count: '${doctor['Experience']}',
+                  name: 'Experience'),
+              DetIcon(
+                  icon: Icons.abc_sharp,
+                  count: '${doctor['rating']}',
+                  name: 'Rating'),
+              DetIcon(
+                  icon: Icons.abc_sharp,
+                  count: '${(doctor['reviews'] as List).length}',
+                  name: 'Reviews'),
             ],
           ),
           const SizedBox(
@@ -326,7 +208,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-            child: Text(doctor['about_me'].toString()),
+            child: Text(doctor['aboutme'].toString()),
           ),
           const SizedBox(
             height: 12,
@@ -386,7 +268,67 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           const SizedBox(
             height: 7,
           ),
-          ReviewCard(review: doctor["review"] as List),
+          Expanded(
+            child: ListView.builder(
+              itemCount: (doctor["reviews"] as List).length,
+              itemBuilder: (BuildContext context, int index) {
+                // Create and return MyWidget for each index
+                return ReviewCard(review:doctor["reviews"][index]);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DetIcon extends StatelessWidget {
+  final icon;
+  final String count;
+  final String name;
+  const DetIcon({
+    super.key,
+    required this.icon,
+    required this.count,
+    required this.name,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 30.0),
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 28,
+            backgroundColor: Colors.grey.shade200,
+            child: Icon(
+              icon,
+              size: 28,
+              color: Colors.black,
+            ),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
+          Text(
+            count,
+            style: const TextStyle(
+                fontSize: 15,
+                color: Colors.black87,
+                fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(
+            height: 2,
+          ),
+          Text(
+            name,
+            style: const TextStyle(
+                fontSize: 12,
+                color: Colors.black87,
+                fontWeight: FontWeight.w300),
+          ),
         ],
       ),
     );
@@ -394,75 +336,69 @@ class _DoctorDetailsState extends State<DoctorDetails> {
 }
 
 class ReviewCard extends StatelessWidget {
-  final List review;
+  final Map review;
 
-  const ReviewCard({
+  ReviewCard({
     super.key,
     required this.review,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       children: [
-        Row(
-          children: [
-            const SizedBox(width: 20),
-            const CircleAvatar(
-              radius: 26,
-              backgroundImage: NetworkImage(
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNqgFy_pnSg5_eaKpFcVyJ0nQTOT0XmAvM8w&usqp=CAU"),
-            ),
-            Column(
-              children: [
-                const Text(
-                  "Melendez",
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                ),
-                const Row(
-                  children: [
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Text("5"),
-                    SizedBox(
-                      width: 4,
-                    ),
-                    Icon(Icons.star_rate_rounded,
-                        color: Colors.amber, size: 20),
-                    Icon(Icons.star_rate_rounded,
-                        color: Colors.amber, size: 20),
-                    Icon(Icons.star_rate_rounded,
-                        color: Colors.amber, size: 20),
-                    Icon(Icons.star_rate_rounded,
-                        color: Colors.amber, size: 20),
-                    Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20)
-                  ],
-                ),
-                ReadMoreText(
-                  "${review[0]["review_body"]}",
-                  trimLines: 2,
-                  textAlign: TextAlign.justify,
-                  trimMode: TrimMode.Line,
-                  trimCollapsedText: " Show more ",
-                  trimExpandedText: " Show less ",
-                  moreStyle:
-                      TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-
-                  ),
-                
-                // Padding(
-                //   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
-                //   child: Wrap(
-                //     children: [
-                //       SelectableText("${review[0]["review_body"]}"),
-                //     ],
-                //   ),
-                // ),
-              ],
-            )
-          ],
+        const SizedBox(width: 20),
+        const CircleAvatar(
+          radius: 26,
+          // backgroundImage: NetworkImage(
+          //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNqgFy_pnSg5_eaKpFcVyJ0nQTOT0XmAvM8w&usqp=CAU"),
         ),
+        Column(
+          children: [
+            Text(
+              review["patient_name"],
+              style: const TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            Row(
+              children: [
+                const SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  review["ratings"].toString(),
+                ),
+                const SizedBox(
+                  width: 4,
+                ),
+                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
+                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
+                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
+                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
+                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20)
+              ],
+            ),
+            // ReadMoreText(
+            //   "${review[0]["review_body"]}",
+            //   trimLines: 2,
+            //   textAlign: TextAlign.justify,
+            //   trimMode: TrimMode.Line,
+            //   trimCollapsedText: " Show more ",
+            //   trimExpandedText: " Show less ",
+            //   moreStyle:
+            //       const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+
+            //   ),
+
+            // Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 5),
+            //   child: Wrap(
+            //     children: [
+            //       SelectableText("${review[0]["review_body"]}"),
+            //     ],
+            //   ),
+            // ),
+          ],
+        )
       ],
     );
   }
