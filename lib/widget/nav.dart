@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_01/components/upcoming_card.dart';
+import 'package:project_01/pages/bot/chat_bot.dart';
 import 'package:project_01/pages/list_tab.dart';
 import 'package:project_01/pages/report/list_medicines.dart';
 import 'package:project_01/pages/report/test_report_page.dart';
@@ -37,6 +38,9 @@ class _NavBarState extends State<NavBar> {
                 icon: Icon(Icons.calendar_month_outlined, size: 30),
                 label: 'Appointment'),
             NavigationDestination(
+                icon: Icon(Icons.add_chart_rounded, size: 30),
+                label: 'MediMate'),
+            NavigationDestination(
                 icon: Icon(Icons.medication_liquid_sharp,
                     size: 30), //Icons.medical_information_outlined
                 label: 'Medicines'),
@@ -53,6 +57,10 @@ class _NavBarState extends State<NavBar> {
         Container(
           alignment: Alignment.center,
           child: const TabBarApp(),
+        ),
+        Container(
+          alignment: Alignment.center,
+          child: const ChatBot(),
         ),
         Container(
           alignment: Alignment.center,

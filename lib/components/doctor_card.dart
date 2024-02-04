@@ -186,7 +186,7 @@ class _DoctorCardState extends State<DoctorCard> {
                 onPressed: () {},
                 child: const Text(
                   'Book Appointment',
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18,color: Colors.white),
                 ),
               ),
             ],

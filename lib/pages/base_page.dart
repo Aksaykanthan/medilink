@@ -34,6 +34,7 @@ class BasePage extends StatelessWidget {
         navHome: () => {navHome(context)},
       ),
       appBar: AppBar(
+        foregroundColor: Colors.white,
         title: const Text(
           'MediLink',
           style: TextStyle(
@@ -55,3 +56,5 @@ class BasePage extends StatelessWidget {
     );
   }
 }
+
+

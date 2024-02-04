@@ -64,10 +64,8 @@ class AuthPage extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            // Use await to get the result before making a decision
             checkUserProfile(FirebaseAuth.instance.currentUser!.uid, context);
           }
-          // Return a placeholder widget; you might want to customize this part based on your needs
           return const LoginOrRegisterPage();
         },
       ),
