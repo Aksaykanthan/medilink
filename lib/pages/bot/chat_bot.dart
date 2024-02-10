@@ -31,7 +31,7 @@ Important Notes:
 \n\nPatient input is : \n\n''';
 
   String url =
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyDZbIWFyxX_Q4CITsWIojx6qMHB77S4Q00";
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyDO9m4dTq6alsJuek9YNrm9x298Gb27WSQ";
   List<ChatMessage> messages = [];
   ChatUser curruser = ChatUser(id: "1");
   ChatUser bot = ChatUser(id: "2", firstName: "MediMate");

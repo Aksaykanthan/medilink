@@ -35,7 +35,7 @@ class _NavBarState extends State<NavBar> {
             NavigationDestination(
                 icon: Icon(Icons.home_outlined, size: 30), label: 'Home'),
             NavigationDestination(
-                icon: Icon(Icons.calendar_month_outlined, size: 30),
+                icon: Icon(Icons.calendar_month_outlined, size: 32),
                 label: 'Appointment'),
             NavigationDestination(
                 icon: Icon(Icons.add_chart_rounded, size: 30),
