@@ -11,16 +11,16 @@ class DoctorCard extends StatefulWidget {
 }
 
 class _DoctorCardState extends State<DoctorCard> {
-  late Map<String, dynamic> Doctor;
-  late String DocId;
-  bool Fav = false;
+  late Map<String, dynamic> doctor;
+  late String docId;
+  bool fav = false;
 
   @override
   void initState() {
     super.initState();
-    Doctor = widget.data;
-    DocId = widget.docId;
-    // Doctor = {
+    doctor = widget.data;
+    docId = widget.docId;
+    // doctor = {
     //   "name": widget.name,
     //   "field": "Surgeon",
     //   "hospital": "St.Bonaventure Hospital",
@@ -33,7 +33,7 @@ class _DoctorCardState extends State<DoctorCard> {
 
   void liked() {
     setState(() {
-      Fav = !Fav;
+      fav = !fav;
     });
   }
 
@@ -46,7 +46,7 @@ class _DoctorCardState extends State<DoctorCard> {
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    DoctorDetails(data: Doctor, docId: DocId)))),
+                    DoctorDetails(data: doctor, docId: docId)))),
         child: Container(
           height: 230,
           width: 340,
@@ -64,18 +64,30 @@ class _DoctorCardState extends State<DoctorCard> {
             children: [
               Row(
                 children: [
-                  Padding(
+                  if (doctor["image"].runtimeType == String)...[Padding(
                     padding: const EdgeInsets.all(14),
                     child: SizedBox(
                       child: ClipRRect(
                           borderRadius: BorderRadius.circular(14),
-                          child: Image.asset(
-                            Doctor["image"].toString(),
+                          child: Image.network(
+                            doctor["image"].toString(),
                             alignment: Alignment.centerLeft,
                             height: 130,
+                            width: 140,
+                            fit: BoxFit.fill,
                           )),
                     ),
-                  ),
+                  )]
+                  else...[
+                    Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: SizedBox(
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Container(alignment:Alignment.center,width: 140,height: 130,color: Colors.grey.shade200,child: const Text("No Pic"))
+                      ),
+                    ),)
+                  ],
                   Column(
                     crossAxisAlignment:
                         CrossAxisAlignment.start, // Align text to left
@@ -85,19 +97,19 @@ class _DoctorCardState extends State<DoctorCard> {
                             .start, // Align children to the start
                         children: [
                           Text(
-                            "Dr.${Doctor["name"]}",
+                            "Dr.${doctor["name"]}",
                             style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 16),
                           ),
                           Align(
                             alignment: Alignment.centerLeft,
-                            child: IconButton(
+                            child:IconButton(
                               padding: EdgeInsets.zero,
-                              icon: Fav
+                              icon: fav
                                   ? const Icon(Icons.favorite_rounded)
                                   : const Icon(Icons.favorite_border_rounded),
                               onPressed: () => liked(),
-                              color: Fav ? Colors.pink : Colors.grey,
+                              color: fav ? Colors.pink : Colors.grey,
                               iconSize: 20,
                             ),
                           ),
@@ -112,7 +124,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         height: 5,
                       ),
                       Text(
-                        Doctor["field"].toString(),
+                        doctor["field"].toString(),
                         style: const TextStyle(
                           color: Colors.black87,
                           fontWeight: FontWeight.bold,
@@ -125,7 +137,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         children: [
                           const Icon(Icons.location_on_outlined, size: 15),
                           Text(
-                            Doctor["hospital"].toString(),
+                            doctor["hospital"].toString(),
                             style: const TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.w400),
@@ -133,7 +145,7 @@ class _DoctorCardState extends State<DoctorCard> {
                         ],
                       ),
                       Text(
-                        Doctor["city"].toString(),
+                        doctor["city"].toString(),
                         style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w400,
@@ -149,7 +161,7 @@ class _DoctorCardState extends State<DoctorCard> {
                             Icons.star_rate_rounded,
                             color: Colors.yellow,
                           ),
-                          Text("${Doctor["rating"]}"),
+                          Text("${doctor["rating"]}"),
                           const SizedBox(
                             width: 10,
                           ),
@@ -162,7 +174,7 @@ class _DoctorCardState extends State<DoctorCard> {
                             width: 10,
                           ),
                           // Text(
-                          //   "${Doctor["reviews"]} Reviews  ",
+                          //   "${doctor["reviews"]} Reviews  ",
                           //   style: const TextStyle(
                           //       color: Colors.black54,
                           //       fontWeight: FontWeight.w300),

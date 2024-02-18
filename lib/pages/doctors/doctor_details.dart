@@ -1,5 +1,4 @@
 // ignore: file_names
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
@@ -13,10 +12,10 @@ class DoctorDetails extends StatefulWidget {
 }
 
 class _DoctorDetailsState extends State<DoctorDetails> {
-  bool Fav = false;
+  bool fav = false;
   late Map<String, dynamic> doctor;
   // Map doctor = {
-  //   'name': 'Shaun Murphy',
+  //   'name': 'Shaun Murphy',=
   //   'field': 'Surgeon',
   //   'hospital': 'St.Bonaventure Hospital',
   //   'patients_cnt': 1000,
@@ -47,7 +46,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
 
   void liked() {
     setState(() {
-      Fav = !Fav;
+      fav = !fav;
     });
   }
 
@@ -77,11 +76,11 @@ class _DoctorDetailsState extends State<DoctorDetails> {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Fav
+            icon: fav
                 ? const Icon(Icons.favorite_rounded)
                 : const Icon(Icons.favorite_border_rounded),
             onPressed: () => liked(),
-            color: Fav ? Colors.pink : Colors.black,
+            color: fav ? Colors.pink : Colors.black,
             iconSize: 25,
           )
         ],
@@ -105,17 +104,36 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                 ],
               ),
               child: Row(children: [
-                Padding(
-                  padding: const EdgeInsets.all(14),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(14),
-                    child: Image.asset(
-                      'assets/icons/shaun.jpeg',
-                      alignment: Alignment.centerLeft,
-                      height: 120,
+                if (doctor["image"].runtimeType == String) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: SizedBox(
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Image.network(
+                            doctor["image"].toString(),
+                            alignment: Alignment.centerLeft,
+                            height: 130,
+                            width: 120,
+                            fit: BoxFit.fill,
+                          )),
                     ),
-                  ),
-                ),
+                  )
+                ] else ...[
+                  Padding(
+                    padding: const EdgeInsets.all(14),
+                    child: SizedBox(
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(14),
+                          child: Container(
+                              alignment: Alignment.center,
+                              width: 120,
+                              height: 130,
+                              color: Colors.grey.shade200,
+                              child: const Text("No Pic"))),
+                    ),
+                  )
+                ],
                 Column(
                   children: [
                     const SizedBox(width: 100, height: 14),
@@ -149,6 +167,7 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                     ),
                     const SizedBox(width: 100, height: 7),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         const Icon(
                           Icons.location_on_outlined,
@@ -183,9 +202,9 @@ class _DoctorDetailsState extends State<DoctorDetails> {
                   icon: Icons.abc_sharp,
                   count: '${doctor['rating']}',
                   name: 'Rating'),
-              DetIcon(
+              const DetIcon(
                   icon: Icons.abc_sharp,
-                  count: '${(doctor['reviews'] as List).length}',
+                  count: "0", //'${(doctor['reviews'] as List).length}',
                   name: 'Reviews'),
             ],
           ),
@@ -268,15 +287,25 @@ class _DoctorDetailsState extends State<DoctorDetails> {
           const SizedBox(
             height: 7,
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: (doctor["reviews"] as List).length,
-              itemBuilder: (BuildContext context, int index) {
-                // Create and return MyWidget for each index
-                return ReviewCard(review:doctor["reviews"][index]);
-              },
+          if (doctor["reviews"] != null) ...[
+            Expanded(
+              child: ListView.builder(
+                itemCount: (doctor["reviews"] as List).length,
+                itemBuilder: (BuildContext context, int index) {
+                  // Create and return MyWidget for each index
+                  return ReviewCard(review: doctor["reviews"][index]);
+                },
+              ),
             ),
-          ),
+          ] else ...[
+            Container(
+              alignment: Alignment.center,
+              child: const Text(
+                "No Reviews Found",
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
+            )
+          ]
         ],
       ),
     );
@@ -370,11 +399,16 @@ class ReviewCard extends StatelessWidget {
                 const SizedBox(
                   width: 4,
                 ),
-                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
-                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
-                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
-                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20),
-                Icon(Icons.star_rate_rounded, color: Colors.amber, size: 20)
+                const Icon(Icons.star_rate_rounded,
+                    color: Colors.amber, size: 20),
+                const Icon(Icons.star_rate_rounded,
+                    color: Colors.amber, size: 20),
+                const Icon(Icons.star_rate_rounded,
+                    color: Colors.amber, size: 20),
+                const Icon(Icons.star_rate_rounded,
+                    color: Colors.amber, size: 20),
+                const Icon(Icons.star_rate_rounded,
+                    color: Colors.amber, size: 20)
               ],
             ),
             // ReadMoreText(
