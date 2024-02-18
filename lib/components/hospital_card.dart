@@ -16,7 +16,7 @@ class HospitalCard extends StatefulWidget {
 }
 
 class _HospitalCardState extends State<HospitalCard> {
-  late Map<String, dynamic> Hospital;
+  late Map<String, dynamic> hospital;
 
   // final Hospital = {
   //   "name": "Sunrise Health",
@@ -29,7 +29,7 @@ class _HospitalCardState extends State<HospitalCard> {
   @override
   void initState() {
     super.initState();
-    Hospital = widget.data;
+    hospital = widget.data;
   }
 
   @override
@@ -37,8 +37,10 @@ class _HospitalCardState extends State<HospitalCard> {
     return Padding(
       padding: const EdgeInsetsDirectional.only(top: 15.0, start: 15, end: 15,bottom: 10),
       child: GestureDetector(
-        onTap: () => (Navigator.push(context,
-            MaterialPageRoute(builder: (context) => HospitalDetails()))),
+        onTap: () => (Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HospitalDetails(data: hospital, hospId: widget.hospId)))),
         child: Container(
           height: 300,
           width: 340,
@@ -73,7 +75,7 @@ class _HospitalCardState extends State<HospitalCard> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    Hospital["name"].toString(),
+                    hospital["name"].toString(),
                     style: const TextStyle(
                         fontSize: 20, fontWeight: FontWeight.bold),
                   ),
@@ -88,7 +90,7 @@ class _HospitalCardState extends State<HospitalCard> {
                         size: 20,
                       ),
                       Text(
-                        Hospital["location"].toString(),
+                        hospital["location"].toString(),
                         style: TextStyle(color: Colors.grey[600], fontSize: 16),
                       )
                     ],
@@ -99,7 +101,7 @@ class _HospitalCardState extends State<HospitalCard> {
                   Row(
                     children: [
                       Text(
-                        Hospital["rating"].toString(),
+                        hospital["rating"].toString(),
                       ),
                       const Icon(
                         Icons.star_rate_rounded,
@@ -109,7 +111,7 @@ class _HospitalCardState extends State<HospitalCard> {
                         width: 2,
                       ),
                       Text(
-                        "(${Hospital["review"]} reviews)",
+                        "(${hospital["review"]} reviews)",
                       ),
                     ],
                   ),
@@ -128,7 +130,7 @@ class _HospitalCardState extends State<HospitalCard> {
                         color: Colors.black54,
                         size: 16,
                       ),
-                      Text("${Hospital["distance"]} Km".toString()),
+                      Text("${hospital["distance"]} Km".toString()),
                       const SizedBox(
                         width: 150,
                       ),
@@ -136,7 +138,7 @@ class _HospitalCardState extends State<HospitalCard> {
                         Icons.local_hospital_outlined,
                       ),
                       Text(
-                        " ${Hospital["type"]}",
+                        " ${hospital["type"]}",
                       )
                     ],
                   )

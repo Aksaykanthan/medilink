@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_01/components/upcoming_card.dart';
 import 'package:project_01/pages/bot/chat_bot.dart';
+import 'package:project_01/pages/home.dart';
 import 'package:project_01/pages/list_tab.dart';
 import 'package:project_01/pages/report/list_medicines.dart';
 import 'package:project_01/pages/report/test_report_page.dart';
@@ -52,7 +52,7 @@ class _NavBarState extends State<NavBar> {
         Container(
           alignment: Alignment.center,
           // child: const Text('Home', style: TextStyle(fontSize: 30)),
-          child: const UpcomingAppCard(),
+          child: const Home(),
         ),
         Container(
           alignment: Alignment.center,

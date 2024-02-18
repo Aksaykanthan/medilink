@@ -3,25 +3,34 @@ import 'package:project_01/services/map.dart';
 import 'package:project_01/widget/slider.dart';
 
 class HospitalDetails extends StatefulWidget {
-  HospitalDetails({super.key});
+  final data;
+  final hospId;
+  const HospitalDetails({super.key, required this.data, required this.hospId});
 
   @override
   State<HospitalDetails> createState() => _HospitalDetailsState();
 }
 
 class _HospitalDetailsState extends State<HospitalDetails> {
-  final hospital = {
-    'name': 'Apollo Hospitals',
-    'url':
-        'https://www.google.com/maps/dir//Tower+49,+Apollo+Clinic,+1st+KTS,+1,+Sathy+Rd,+Athipalayam+Pirivu,+Ganapathy,+Coimbatore,+Tamil+Nadu+641006/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3ba858e2c2fdc92d:0x9bef8ad9fab36fbd?sa=X&ved=2ahUKEwjmsLvkh4CEAxVGV2wGHQeJDywQ48ADegQIHxAA',
-    'address':
-        ' Tower 49, 1st KTS, 1, Sathy Rd,\n Athipalayam Pirivu, Ganapathy,\n Coimbatore, Tamil Nadu 641006',
-    'about_us':
-        'Apollo has been one of the greatest hospitals around the city and is now the top fourth hospital in the country. Our srevices are top notch',
-    "contact_number": "91+ 92384 79234 \n91+ 47834 93492",
-    "contact_email": 'apollohospital@gmail.com'
-  };
+  // final hospital = {
+  //   'name': 'Apollo Hospitals',
+  //   'url':
+  //       'https://www.google.com/maps/dir//Tower+49,+Apollo+Clinic,+1st+KTS,+1,+Sathy+Rd,+Athipalayam+Pirivu,+Ganapathy,+Coimbatore,+Tamil+Nadu+641006/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3ba858e2c2fdc92d:0x9bef8ad9fab36fbd?sa=X&ved=2ahUKEwjmsLvkh4CEAxVGV2wGHQeJDywQ48ADegQIHxAA',
+  //   'address':
+  //       ' Tower 49, 1st KTS, 1, Sathy Rd,\n Athipalayam Pirivu, Ganapathy,\n Coimbatore, Tamil Nadu 641006',
+  //   'about_us':
+  //       'Apollo has been one of the greatest hospitals around the city and is now the top fourth hospital in the country. Our srevices are top notch',
+  //   "contact_number": "91+ 92384 79234 \n91+ 47834 93492",
+  //   "contact_email": 'apollohospital@gmail.com'
+  // };
+  late Map<String, dynamic> hospital;
   bool docex = false;
+
+  @override
+  void initState() {
+    super.initState();
+    hospital = widget.data;
+  }
 
   @override
   Widget build(BuildContext context) {
