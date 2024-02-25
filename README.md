@@ -1,4 +1,4 @@
-# Medimate
+# MediLink
 
 Medimate is a comprehensive Doctor-Patient Management Project that streamlines the storage and management of patient reports and details. This initiative aims to enhance the efficiency of doctor-patient interactions, facilitating quicker and more effective healthcare services. Leveraging the power of Firebase and Flutter, Medimate brings modern technology to the healthcare sector.
 
@@ -36,12 +36,12 @@ To run Medimate locally and explore its features, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Aksaykanthan/medimate.git
+   git clone https://github.com/Aksaykanthan/medilink.git
    ```
 
 2. Navigate to the project directory:
    ```bash
-   cd medimate
+   cd medilink
    ```
 
 3. Install dependencies:
