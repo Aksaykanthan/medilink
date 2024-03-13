@@ -4,7 +4,7 @@ Medimate is a comprehensive Doctor-Patient Management Project that streamlines t
 
 
 ## Youtube Link
-<a href = "youtube.com/watch?v=W9BMn6rp2FA" > Click Here </a>
+<a href = "youtube.com/watch?v=W9BMn6rp2FA" target = "_blank"> Click Here </a>
 
 ## Features
 
