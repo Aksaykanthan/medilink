@@ -3,10 +3,7 @@
 Medimate is a comprehensive Doctor-Patient Management Project that streamlines the storage and management of patient reports and details. This initiative aims to enhance the efficiency of doctor-patient interactions, facilitating quicker and more effective healthcare services. Leveraging the power of Firebase and Flutter, Medimate brings modern technology to the healthcare sector.
 
 
-## Check Out Our Solution
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/W9BMn6rp2FA?si=NWRS3PRG3R_i5vHB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
+## Check Out Our <a href = "https://www.youtube.com/watch?v=W9BMn6rp2FA" target = "_blank"> Youtube Video</a>
 
 ## Features
 
