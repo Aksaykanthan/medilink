@@ -19,11 +19,11 @@ class GetUser extends StatelessWidget {
     return FutureBuilder(
       future: doctor.doc(userID).get(),
       builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          Map<String, dynamic> data =
-              snapshot.data!.data() as Map<String, dynamic>;
-          return Text("data");
-        }
+        // if (snapshot.connectionState == ConnectionState.done) {
+        //   Map<String, dynamic> data =
+        //       snapshot.data!.data() as Map<String, dynamic>;
+        //   return Text("data");
+        // }
         return const Text("Loading....");
       },
     );
